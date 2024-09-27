@@ -28,7 +28,6 @@ createGridButton.insertAdjacentElement("afterend", randomColorButton);
 
 // helper function
 function createRandomNumberForRGB() {
-    console.log(Math.floor(Math.random() * 256));
     return Math.floor(Math.random() * 256);
 }
 

@@ -88,6 +88,7 @@ body.prepend(changeGridButton);
 7. Adding the button functionality. My first bug! I'm trying to have the user input a number, if not a number (NaN), ask again.
 
 ```js
+// can you find the bug?
 function createNewGrid() {
     do {
         let numberOfSquares = Number(
@@ -98,7 +99,6 @@ function createNewGrid() {
         // console.log(isNaN(numberOfSquares));
     } while (isNaN(numberOfSquares));
 }
-// can you find the bug?
 ```
 
 Anyway, here's the working one.
@@ -201,6 +201,11 @@ createGridButton.insertAdjacentElement("afterend", randomColorButton);
 Also changed the event listener.
 
 ```js
+// helper function
+function createRandomNumberForRGB() {
+    return Math.floor(Math.random() * 256);
+}
+
 // fill the grid
 let squareSize = CONTAINER_SIZE / numberOfSquares;
 for (let i = 0; i < numberOfSquares * numberOfSquares; i++) {
