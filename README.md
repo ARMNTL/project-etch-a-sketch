@@ -180,7 +180,7 @@ function createNewGrid() {
 }
 ```
 
-9. Extra Credits!
+9. Extra Credits for Random Colors!
 
 ```js
 // create random color button
@@ -216,3 +216,28 @@ for (let i = 0; i < numberOfSquares * numberOfSquares; i++) {
     container.appendChild(squareDiv);
 }
 ```
+
+10. More Extra Credits for Opacity!
+
+````js
+// fill the grid
+    let squareSize = CONTAINER_SIZE / numberOfSquares;
+    for (let i = 0; i < numberOfSquares * numberOfSquares; i++) {
+        const squareDiv = document.createElement("div");
+        squareDiv.style.width = `${squareSize}px`;
+        squareDiv.style.height = `${squareSize}px`;
+        squareDiv.style.border = "1px solid black";
+        squareDiv.style.opacity = 0.1;
+        squareDiv.addEventListener("mouseover", () => {
+            squareDiv.style.backgroundColor = isRandomColor
+                ? `rgb(${createRandomNumberForRGB()} ${createRandomNumberForRGB()} ${createRandomNumberForRGB()})`
+                : "black";
+            let currentOpacity = parseFloat(squareDiv.style.opacity) || 0;
+            if (currentOpacity < 1) {
+                squareDiv.style.opacity = currentOpacity + 0.1;
+            }
+        });
+        container.appendChild(squareDiv);
+    }
+    ```
+````

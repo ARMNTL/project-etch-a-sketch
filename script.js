@@ -60,10 +60,15 @@ function createNewGrid() {
         squareDiv.style.width = `${squareSize}px`;
         squareDiv.style.height = `${squareSize}px`;
         squareDiv.style.border = "1px solid black";
-        squareDiv.addEventListener("mouseenter", () => {
+        squareDiv.style.opacity = 0.1;
+        squareDiv.addEventListener("mouseover", () => {
             squareDiv.style.backgroundColor = isRandomColor
                 ? `rgb(${createRandomNumberForRGB()} ${createRandomNumberForRGB()} ${createRandomNumberForRGB()})`
                 : "black";
+            let currentOpacity = parseFloat(squareDiv.style.opacity) || 0;
+            if (currentOpacity < 1) {
+                squareDiv.style.opacity = currentOpacity + 0.1;
+            }
         });
         container.appendChild(squareDiv);
     }
